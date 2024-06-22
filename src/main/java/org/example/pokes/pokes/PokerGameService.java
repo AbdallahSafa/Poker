@@ -1,4 +1,4 @@
-package org.example.igogym.pokes;
+package org.example.pokes.pokes;
 
 
 import org.springframework.stereotype.Service;
