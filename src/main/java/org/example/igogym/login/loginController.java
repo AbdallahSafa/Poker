@@ -26,6 +26,4 @@ public class loginController {
         return "welcome";
     }
 
-
-
 }
