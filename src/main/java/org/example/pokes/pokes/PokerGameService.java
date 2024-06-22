@@ -11,15 +11,20 @@ import java.util.List;
 public class PokerGameService {
 
     private static List<PokerGame> PokerGames = new ArrayList<>();
+    private static int count = 0;
 
     static{
-        PokerGames.add(new PokerGame(LocalDate.now(), 1, "safa",
+        PokerGames.add(new PokerGame(LocalDate.now(), count++, "safa",
                 20,40));
     }
 
-
     public List<PokerGame> findByUser(String username){
         return PokerGames;
+    }
+
+
+    public void addSession(LocalDate date, String username, float buyIn, float endNight){
+        PokerGames.add(new PokerGame(date, count++, username, buyIn, endNight));
     }
 
 }

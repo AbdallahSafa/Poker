@@ -9,7 +9,7 @@
 
 <body>
 <div class="container">
-    <div>Welcome ${name}</div>
+    <h1>Welcome ${name}</h1>
     <table class="table table-striped">
         <thead>
         <tr>
@@ -34,6 +34,7 @@
         </c:forEach>
         </tbody>
     </table>
+    <a href = "add-session" class = "btn btn-success">Add a Session</a>
 </div>
 <script src="webjars/bootstrap/5.1.3/js/bootstrap.min.js"></script>
 <script src="webjars/jquery/3.6.4/jquery.min.js"></script>
