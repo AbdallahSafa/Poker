@@ -27,6 +27,10 @@ public class PokerGameService {
         PokerGames.add(new PokerGame(date, count++, username, buyIn, endNight));
     }
 
+    public void deleteById(int id){
+        PokerGames.removeIf(predicate -> predicate.getId() == id);
+    }
+
 }
 
 

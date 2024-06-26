@@ -22,7 +22,7 @@
         </tr>
         </thead>
         <tbody>
-        <c:forEach items="${PokerGames}" var="pokerGame">
+        <c:forEach items="${game}" var="pokerGame">
             <tr>
                 <td>${pokerGame.date}</td>
                 <td>${pokerGame.id}</td>
@@ -30,6 +30,7 @@
                 <td>${pokerGame.buyIn}</td>
                 <td>${pokerGame.endNight}</td>
                 <td>${pokerGame.netNight}</td>
+                <td> <a href = "delete?id=${pokerGame.id}" class = "btn btn-warning"> Delete</a> <td>
             </tr>
         </c:forEach>
         </tbody>

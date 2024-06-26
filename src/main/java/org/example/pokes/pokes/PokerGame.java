@@ -1,9 +1,11 @@
 package org.example.pokes.pokes;
-
+import jakarta.validation.constraints.Future;
+import jakarta.validation.constraints.PastOrPresent;
+import jakarta.validation.constraints.Size;
 
 import java.time.LocalDate;
-
 public class PokerGame {
+    @PastOrPresent(message = "Invalid Date")
     private LocalDate date;
     private int id;
     private String username;
@@ -12,6 +14,7 @@ public class PokerGame {
     private float netNight;
 
     public PokerGame(LocalDate date, int id, String username, float buyIn, float endNight) {
+
         this.date = date;
         this.id = id;
         this.username = username;
