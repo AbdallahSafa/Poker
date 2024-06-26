@@ -5,6 +5,7 @@
     </head>
 
     <body>
+        <%@include file="common/navigation.jspf"%>
         <div class = "welcome-container">
             <h1>Welcome ${name}</h1>
              <div><a href = "list-poker-games"> Manage</a> Sessions </div>

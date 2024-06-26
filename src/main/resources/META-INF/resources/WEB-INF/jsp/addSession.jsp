@@ -7,6 +7,8 @@
     <link href ="webjars/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.standalone.min.css" rel = "stylesheet">
 </head>
     <body>
+        <%@include file="common/navigation.jspf"%>
+
         <div class="container">
             <h2>Poker Session Details</h2>
             <form:form method="post" modelAttribute="game">
