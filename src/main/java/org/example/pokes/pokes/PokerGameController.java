@@ -51,8 +51,6 @@ public class PokerGameController {
         return "redirect:/list-poker-games";
     }
 
-
-
     @RequestMapping(value = "update", method = RequestMethod.GET)
     public String showUpdatePageSession(@RequestParam int id, ModelMap model) {
         PokerGame game = pokerGameService.findById(id);

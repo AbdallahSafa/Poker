@@ -4,6 +4,7 @@
 <head>
     <title>Poker Session Form</title>
     <link href="webjars/bootstrap/5.1.3/css/bootstrap.min.css" rel="stylesheet">
+    <link href ="webjars/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.standalone.min.css" rel = "stylesheet">
 </head>
     <body>
         <div class="container">
@@ -11,7 +12,7 @@
             <form:form method="post" modelAttribute="game">
                 <div class="mb-3">
                     <label class="form-label">Date</label>
-                    <form:input path="date" type="date" class="form-control" required="true"/>
+                    <form:input path="date" type="text" class="form-control" required="true"/>
                     <form:errors path="date" cssClass="text-danger"/>
                 </div>
                 <div class="mb-3">
@@ -30,5 +31,12 @@
         </div>
     <script src="webjars/bootstrap/5.1.3/js/bootstrap.min.js"></script>
     <script src="webjars/jquery/3.6.4/jquery.min.js"></script>
+    <script src="webjars/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
+    <script type = "text/javascript">
+        $('#date').datepicker({
+            format: 'mm/dd/yyyy'
+        });
+    </script>
+
     </body>
 </html>

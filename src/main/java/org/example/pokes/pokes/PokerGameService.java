@@ -36,10 +36,22 @@ public class PokerGameService {
         return game;
     }
 
-    public void updateSession(@Valid PokerGame game){
-        deleteById(game.getId());
-        PokerGames.add(game);
-    }
+//    public void updateSession(@Valid PokerGame game){
+//        deleteById(game.getId());
+//        PokerGames.add(game);
+//    }
+    public void updateSession(PokerGame game) {
+        for (PokerGame existingGame : PokerGames) {
+            if (existingGame.getId() == game.getId()) {
+                existingGame.setDate(game.getDate());
+                existingGame.setBuyIn(game.getBuyIn());
+                existingGame.setEndNight(game.getEndNight());
+                existingGame.setNetNight(game.getNetNight());
+                existingGame.setUsername(game.getUsername());
+                break;
+            }
+        }
+}
 
 }
 

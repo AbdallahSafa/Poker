@@ -1,4 +1,5 @@
 <%@ taglib prefix="c" uri="jakarta.tags.core" %>
+<%@ taglib prefix="fmt" uri="jakarta.tags.fmt" %>
 
 <html>
 
@@ -14,8 +15,6 @@
         <thead>
         <tr>
             <th>date</th>
-<%--            <th>id</th>--%>
-<%--            <th>username</th>--%>
             <th>buy-in</th>
             <th>end of night</th>
             <th>net of night</th>
@@ -25,8 +24,6 @@
         <c:forEach items="${game}" var="pokerGame">
             <tr>
                 <td>${pokerGame.date}</td>
-<%--                <td>${pokerGame.id}</td>--%>
-<%--                <td>${pokerGame.username}</td>--%>
                 <td>${pokerGame.buyIn}</td>
                 <td>${pokerGame.endNight}</td>
                 <td>${pokerGame.netNight}</td>
