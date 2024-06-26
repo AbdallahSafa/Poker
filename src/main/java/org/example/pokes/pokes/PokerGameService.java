@@ -1,6 +1,7 @@
 package org.example.pokes.pokes;
 
 
+import jakarta.validation.Valid;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
@@ -29,6 +30,15 @@ public class PokerGameService {
 
     public void deleteById(int id){
         PokerGames.removeIf(predicate -> predicate.getId() == id);
+    }
+    public PokerGame findById(int id){
+        PokerGame game = PokerGames.stream().filter(predicate -> predicate.getId() == id).findFirst().get();
+        return game;
+    }
+
+    public void updateSession(@Valid PokerGame game){
+        deleteById(game.getId());
+        PokerGames.add(game);
     }
 
 }

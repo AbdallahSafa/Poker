@@ -14,8 +14,8 @@
         <thead>
         <tr>
             <th>date</th>
-            <th>id</th>
-            <th>username</th>
+<%--            <th>id</th>--%>
+<%--            <th>username</th>--%>
             <th>buy-in</th>
             <th>end of night</th>
             <th>net of night</th>
@@ -25,12 +25,13 @@
         <c:forEach items="${game}" var="pokerGame">
             <tr>
                 <td>${pokerGame.date}</td>
-                <td>${pokerGame.id}</td>
-                <td>${pokerGame.username}</td>
+<%--                <td>${pokerGame.id}</td>--%>
+<%--                <td>${pokerGame.username}</td>--%>
                 <td>${pokerGame.buyIn}</td>
                 <td>${pokerGame.endNight}</td>
                 <td>${pokerGame.netNight}</td>
                 <td> <a href = "delete?id=${pokerGame.id}" class = "btn btn-warning"> Delete</a> <td>
+                <td> <a href = "update?id=${pokerGame.id}" class = "btn btn-outline-success"> Update</a> <td>
             </tr>
         </c:forEach>
         </tbody>

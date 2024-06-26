@@ -51,4 +51,26 @@ public class PokerGameController {
         return "redirect:/list-poker-games";
     }
 
+
+
+    @RequestMapping(value = "update", method = RequestMethod.GET)
+    public String showUpdatePageSession(@RequestParam int id, ModelMap model) {
+        PokerGame game = pokerGameService.findById(id);
+        model.put("game", game);
+        return "addSession";
+    }
+
+    @RequestMapping(value = "update", method = RequestMethod.POST)
+    public String updateSessionPage(ModelMap model, @Valid @ModelAttribute("game") PokerGame game, BindingResult bindingResult) {
+        if (bindingResult.hasErrors()) {
+            return "addSession";
+        }
+
+        pokerGameService.updateSession(game);
+        return "redirect:/list-poker-games";
+    }
+
+
+
+
 }
