@@ -1,6 +1,8 @@
 package org.example.pokes.pokes;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
@@ -16,6 +18,11 @@ import java.util.List;
 public class PokerGameController {
     private final PokerGameService pokerGameService;
 
+    private String getLoggedInUser(){
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        return authentication.getName();
+    }
+
     @Autowired
     public PokerGameController(PokerGameService pokerGameService) {
         super();
@@ -24,7 +31,8 @@ public class PokerGameController {
 
     @RequestMapping("list-poker-games")
     public String listWorkouts(ModelMap model) {
-        List<PokerGame> PokerGames = pokerGameService.findByUser("safa");
+        String username = getLoggedInUser();
+        List<PokerGame> PokerGames = pokerGameService.findByUser(username);
         model.addAttribute("game", PokerGames);
         return "listpokergames";
     }
@@ -41,7 +49,7 @@ public class PokerGameController {
         if (bindingResult.hasErrors()) {
             return "addSession";
         }
-        pokerGameService.addSession(game.getDate(), (String)model.get("name"), game.getBuyIn(), game.getEndNight());
+        pokerGameService.addSession(game.getDate(), getLoggedInUser(), game.getBuyIn(), game.getEndNight());
         return "redirect:/list-poker-games";
     }
 

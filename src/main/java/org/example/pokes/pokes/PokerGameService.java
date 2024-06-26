@@ -19,8 +19,10 @@ public class PokerGameService {
                 20,40));
     }
 
-    public List<PokerGame> findByUser(String username){
-        return PokerGames;
+    public List<PokerGame> findByUser(String username) {
+        return PokerGames.stream()
+                .filter(game -> game.getUsername().equalsIgnoreCase(username))
+                .toList();
     }
 
 
@@ -31,15 +33,12 @@ public class PokerGameService {
     public void deleteById(int id){
         PokerGames.removeIf(predicate -> predicate.getId() == id);
     }
+
     public PokerGame findById(int id){
         PokerGame game = PokerGames.stream().filter(predicate -> predicate.getId() == id).findFirst().get();
         return game;
     }
 
-//    public void updateSession(@Valid PokerGame game){
-//        deleteById(game.getId());
-//        PokerGames.add(game);
-//    }
     public void updateSession(PokerGame game) {
         for (PokerGame existingGame : PokerGames) {
             if (existingGame.getId() == game.getId()) {
