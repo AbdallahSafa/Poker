@@ -1,17 +1,23 @@
 package org.example.pokes.pokes;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.Id;
 import jakarta.validation.constraints.Future;
 import jakarta.validation.constraints.PastOrPresent;
 import jakarta.validation.constraints.Size;
-
 import java.time.LocalDate;
+
+@Entity
 public class PokerGame {
-    @PastOrPresent(message = "Invalid Date")
-    private LocalDate date;
+    @Id
+    @GeneratedValue
     private int id;
     private String username;
     private float buyIn;
     private float endNight;
     private float netNight;
+    @PastOrPresent(message = "Invalid Date")
+    private LocalDate date;
 
     public PokerGame(LocalDate date, int id, String username, float buyIn, float endNight) {
 
@@ -21,6 +27,10 @@ public class PokerGame {
         this.buyIn = buyIn;
         this.endNight = endNight;
         this.netNight = endNight - buyIn;
+    }
+
+    public PokerGame() {
+
     }
 
     @Override

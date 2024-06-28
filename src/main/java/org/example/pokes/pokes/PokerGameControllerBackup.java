@@ -3,7 +3,6 @@ import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -14,8 +13,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import java.time.LocalDate;
 import java.util.List;
 
-@Controller
-public class PokerGameController {
+//@Controller
+public class PokerGameControllerBackup {
     private final PokerGameService pokerGameService;
 
     private String getLoggedInUser(){
@@ -24,7 +23,7 @@ public class PokerGameController {
     }
 
     @Autowired
-    public PokerGameController(PokerGameService pokerGameService) {
+    public PokerGameControllerBackup(PokerGameService pokerGameService) {
         super();
         this.pokerGameService = pokerGameService;
     }
