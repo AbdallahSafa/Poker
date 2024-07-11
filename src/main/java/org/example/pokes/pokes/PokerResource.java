@@ -2,10 +2,7 @@ package org.example.pokes.pokes;
 
 
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -35,6 +32,13 @@ public class PokerResource {
     {
         pokerGameRespository.deleteById(id);
         return ResponseEntity.noContent().build();
+    }
+
+    @PutMapping("/users/{username}/list-poker-games/{id}")
+    public PokerGame updateGame(@PathVariable String username , @PathVariable int id , @RequestBody PokerGame game) {
+        game.setUsername(username);
+        pokerGameRespository.save(game);
+        return game;
     }
 
 
