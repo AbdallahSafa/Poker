@@ -41,5 +41,13 @@ public class PokerResource {
         return game;
     }
 
+    @GetMapping("/users/{username}/test")
+    public List<PokerGame> createGame(@PathVariable String username ) {
+//        game.setUsername(username);
+//        pokerGameRespository.save(game);
+//        return game;
+        return pokerGameRespository.getListAllByUser(username);
+    }
+
 
 }

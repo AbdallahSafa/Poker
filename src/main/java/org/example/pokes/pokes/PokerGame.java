@@ -5,9 +5,18 @@ import jakarta.persistence.Id;
 import jakarta.validation.constraints.Future;
 import jakarta.validation.constraints.PastOrPresent;
 import jakarta.validation.constraints.Size;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
 import java.time.LocalDate;
 
 @Entity
+@NoArgsConstructor
+@AllArgsConstructor
+@Getter
+@Setter
 public class PokerGame {
     @Id
     @GeneratedValue
@@ -29,9 +38,6 @@ public class PokerGame {
         this.netNight = endNight - buyIn;
     }
 
-    public PokerGame() {
-
-    }
 
     @Override
     public String toString() {
@@ -45,51 +51,4 @@ public class PokerGame {
                 '}';
     }
 
-    public LocalDate getDate() {
-        return date;
-    }
-
-    public void setDate(LocalDate date) {
-        this.date = date;
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public String getUsername() {
-        return username;
-    }
-
-    public void setUsername(String username) {
-        this.username = username;
-    }
-
-    public float getNetNight() {
-        return netNight;
-    }
-
-    public void setNetNight(float netNight) {
-        this.netNight = netNight;
-    }
-
-    public float getEndNight() {
-        return endNight;
-    }
-
-    public void setEndNight(float endNight) {
-        this.endNight = endNight;
-    }
-
-    public float getBuyIn() {
-        return buyIn;
-    }
-
-    public void setBuyIn(float buyIn) {
-        this.buyIn = buyIn;
-    }
 }
