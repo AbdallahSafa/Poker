@@ -12,11 +12,8 @@ Welcome to the Poker Management Web Application! This application allows users t
 
 - **Java**
 - **Spring Boot**
-- **Thymeleaf**
-- **Bootstrap**
 - **Maven**
 - **JPA/Hibernate**
-- **H2 Database**
 
 ## License
 
@@ -24,7 +21,4 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## Acknowledgements
 
-- **Bootstrap**: For the responsive design framework.
 - **Spring Boot**: For making it easy to create stand-alone, production-grade Spring-based applications.
-- **Thymeleaf**: For the server-side Java template engine.
-- **H2 Database**: For the in-memory database during development.
