@@ -17,29 +17,29 @@ import java.util.function.Function;
 @Configuration
 public class SpringSecurityConfig {
 
-    @Bean
-    public InMemoryUserDetailsManager createUserDetailsManager() {
-        String username = "safa";
-        String password = "safa";
-
-        UserDetails user = createUser("safa", "safa");
-        return new InMemoryUserDetailsManager(user);
-    }
-
-    private UserDetails createUser(String username, String password) {
-        Function<String,String> passwordEncoder = input -> passwordEncoder().encode(input);
-        UserDetails user = User.builder().passwordEncoder(passwordEncoder)
-                .username(username)
-                .password(password)
-                .roles("USER","ADMIN")
-                .build();
-        return user;
-    }
-
-    @Bean
-    public PasswordEncoder passwordEncoder() {
-        return new BCryptPasswordEncoder();
-    }
+//    @Bean
+//    public InMemoryUserDetailsManager createUserDetailsManager() {
+//        String username = "safa";
+//        String password = "safa";
+//
+//        UserDetails user = createUser("safa", "safa");
+//        return new InMemoryUserDetailsManager(user);
+//    }
+//
+//    private UserDetails createUser(String username, String password) {
+//        Function<String,String> passwordEncoder = input -> passwordEncoder().encode(input);
+//        UserDetails user = User.builder().passwordEncoder(passwordEncoder)
+//                .username(username)
+//                .password(password)
+//                .roles("USER","ADMIN")
+//                .build();
+//        return user;
+//    }
+//
+//    @Bean
+//    public PasswordEncoder passwordEncoder() {
+//        return new BCryptPasswordEncoder();
+//    }
 
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
@@ -49,8 +49,8 @@ public class SpringSecurityConfig {
                 .authenticated());
         http.httpBasic(Customizer.withDefaults());
         http.sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS));
-        http.csrf().disable();
-//        http.headers().frameOptions().disable();
+        http.csrf(csrf -> csrf.disable());
+        //http.headers().frameOptions().disable();
         return http.build();
 
     }

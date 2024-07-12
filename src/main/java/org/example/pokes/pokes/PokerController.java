@@ -51,4 +51,11 @@ public class PokerController {
     public PokerGame createGame(@PathVariable String username, @RequestBody PokerGame game) {
         return pokerGameRespository.save(game);
     }
+
+    @GetMapping("/users/{username}/net")
+    public Float getNetProfitLossByUser(@PathVariable String username) {
+        return pokerGameRespository.getNetProfitLossByUser(username);
+    }
+
+
 }

@@ -13,4 +13,7 @@ public interface PokerGameRespository extends JpaRepository<PokerGame, Integer> 
     @Query(value = "SELECT * from poker_game where username = :username", nativeQuery = true)
     public List<PokerGame> getListAllByUser(@Param("username") String username);
 
+    @Query("SELECT SUM(p.netNight) FROM PokerGame p WHERE p.username = :username")
+    public Float getNetProfitLossByUser(@Param("username") String username);
+
 }
