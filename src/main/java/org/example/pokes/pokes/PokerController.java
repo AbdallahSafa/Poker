@@ -7,12 +7,18 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-public class PokerResource {
+public class PokerController {
 
 
     private PokerGameRespository pokerGameRespository;
 
-    public PokerResource(PokerGameRespository pokerGameRespository) {
+    @GetMapping("/auth")
+    public String authCheck(){
+        return "Success";
+    }
+
+
+    public PokerController(PokerGameRespository pokerGameRespository) {
         this.pokerGameRespository = pokerGameRespository;
     }
 
