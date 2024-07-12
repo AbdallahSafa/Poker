@@ -38,7 +38,6 @@ public class PokerGame {
         this.netNight = endNight - buyIn;
     }
 
-
     @Override
     public String toString() {
         return "pokesGame{" +
